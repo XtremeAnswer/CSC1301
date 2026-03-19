@@ -1,8 +1,8 @@
 # CSCI1411 - Scripting & Programming
 
-A collection of scripting assignments completed as part of the **Scripting & Programming** course at the **University of North Georgia (UNG)**. Each project demonstrates practical scripting skills applied in a cybersecurity context.
+A collection of scripting projects completed as part of the **Scripting & Programming** course at the **University of North Georgia (UNG)**. Each project applies scripting concepts to real-world cybersecurity scenarios across three languages.
 
-**Language:** PowerShell  
+**Languages:** PowerShell · Bash · Python  
 **Environment:** Kali Linux (VMware)  
 **Author:** Orkhan Gasimov
 
@@ -10,11 +10,27 @@ A collection of scripting assignments completed as part of the **Scripting & Pro
 
 ## Projects
 
-| Assignment | Description | Concepts |
-|---|---|---|
-| [Assignment 2](./Assignment2) | Dictionary-based credential brute-force simulator | Functions, loops, arrays, external script execution |
+### PowerShell
 
-*More assignments will be added throughout the semester.*
+| Project | Description | Concepts |
+|---|---|---|
+| [Credential Brute-Force](./PowerShell/Credential-BruteForce) | Dictionary-based password attack simulator against a login system | Functions, loops, arrays, external script execution |
+| [Log Forensics](./PowerShell/Log-Forensics) | Incident response investigation parsing 300K+ lines of server logs to trace an attacker and calculate breach cost | Regex, log parsing, reusable functions |
+
+### Bash
+*Coming soon*
+
+### Python
+*Coming soon*
+
+---
+
+## Course Topics
+
+- PowerShell & Bash scripting for information security
+- Log parsing and text analysis with Regular Expressions
+- Flow control, functions, and data pipelines
+- Python scripting for security automation
 
 ---
 

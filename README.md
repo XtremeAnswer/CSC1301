@@ -18,7 +18,10 @@ A collection of scripting projects completed as part of the **Scripting & Progra
 | [Log Forensics](./PowerShell/Log-Forensics) | Incident response investigation parsing 300K+ lines of server logs to trace an attacker and calculate breach cost | Regex, log parsing, reusable functions |
 
 ### Bash
-*Coming soon*
+
+| Project | Description | Concepts |
+|---|---|---|
+| [Pentest Report Generator](./Bash/Pentest-Report) | Automated penetration testing script that scans a target, exploits the vsftpd 2.3.4 backdoor via Metasploit, and generates an HTML security report | nmap, Metasploit, functions, pipes, argument handling |
 
 ### Python
 *Coming soon*

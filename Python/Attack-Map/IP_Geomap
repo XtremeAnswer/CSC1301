@@ -1,0 +1,38 @@
+import re
+import json
+import azuremaps
+
+# Lists to store IP data
+ips = []
+unique_ips = []
+toJson = []
+
+# --- Extract all IPs from the log file ---
+with open("logs/access.log", "r") as file:
+    for line in file:
+        found = re.findall(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', line)
+        ips.extend(found)
+
+# Deduplicate IPs
+unique_ips = list(set(ips))
+
+print(f"[*] Total IPs found:  {len(ips)}")
+print(f"[*] Unique IPs found: {len(unique_ips)}")
+
+# --- Geolocate each unique IP ---
+print("[*] Looking up geolocation for each unique IP...")
+
+for ip in unique_ips:
+    country = azuremaps.getCountry(ip)
+    if country:
+        toJson.append({"user": ip, "country": country})
+
+# --- Write results to found.js for the map ---
+with open("js/found.js", "w") as file:
+    file.writelines("var DATA = {\n")
+    file.writelines("users:" + str(toJson) + ",\n")
+    file.write("created_at: new Date()\n")
+    file.writelines("};")
+
+print(f"[+] Done! {len(toJson)} attackers mapped across {len(set(e['country'] for e in toJson))} countries.")
+print("[+] Open index.html in your browser to view the map.")

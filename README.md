@@ -24,7 +24,9 @@ A collection of scripting projects completed as part of the **Scripting & Progra
 | [Pentest Report Generator](./Bash/Pentest-Report) | Automated penetration testing script that scans a target, exploits the vsftpd 2.3.4 backdoor via Metasploit, and generates an HTML security report | nmap, Metasploit, functions, pipes, argument handling |
 
 ### Python
-*Coming soon*
+| Project | Description | Concepts |
+|---|---|---|
+| [IP Geolocation Attack Map](./Python/Attack-Map) | Parses a web server access log to extract and deduplicate attacker IPs, performs geolocation lookups via the Azure Maps API, and renders an interactive world map of attack origins | Regex, REST APIs, JSON, data pipelines, D3.js integration |
 
 ---
 

@@ -1,0 +1,43 @@
+import os
+import requests
+
+# Load API key from environment variable (never hardcode secrets)
+# Run: export AZURE_MAPS_KEY=your_key_here
+API_KEY = os.environ.get("AZURE_MAPS_KEY")
+
+if not API_KEY:
+    raise EnvironmentError(
+        "Azure Maps API key not set. "
+        "Run: export AZURE_MAPS_KEY=your_key_here"
+    )
+
+
+def getCountry(ip: str) -> str | None:
+    """
+    Looks up the ISO country code for a given IP address
+    using the Azure Maps Geolocation API.
+
+    Args:
+        ip: IPv4 address string (e.g. '8.8.8.8')
+
+    Returns:
+        ISO 3166-1 alpha-2 country code (e.g. 'US'), or None on failure.
+    """
+    url = (
+        f"https://atlas.microsoft.com/geolocation/ip/json"
+        f"?subscription-key={API_KEY}&api-version=1.0&ip={ip}"
+    )
+
+    try:
+        response = requests.get(url, timeout=5)
+        response.raise_for_status()
+        data = response.json()
+        return data["countryRegion"]["isoCode"]
+    except (KeyError, ValueError, requests.RequestException):
+        return None
+
+
+if __name__ == "__main__":
+    test_ip = "8.8.8.8"
+    result = getCountry(test_ip)
+    print(f"[*] Country for {test_ip}: {result}")
